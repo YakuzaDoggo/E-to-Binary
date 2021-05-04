@@ -5,7 +5,7 @@ Stupid program I wrote
 Just a heads up, but this program can only run in a Windows environment. Sorry Linux and Mac users!
 
 ## Installation
-Download the whole repo and run the executable. Simple as that.
+Download the executable from [here](https://github.com/YakuzaDoggo/E-to-Binary/releases) and run it. Simple.
 
 ## Usage
 Insert the binary e with **no** spaces. The program doesn't like spaces one bit. Following that it's just using your big brain power to read and tap a key on your keyboard twice.
