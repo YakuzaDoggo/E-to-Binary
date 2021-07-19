@@ -4,10 +4,6 @@
 #include <sstream>
 #include "header.h"
 #include <vector>
-/* TODO:
-	fix how input is read from a file. it needs to allow spaces
-	but will only read the first byte.
-*/
 
 // to prevent stuff like std::cin.getline() and shit
 using namespace std; 
