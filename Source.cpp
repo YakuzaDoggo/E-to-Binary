@@ -3,23 +3,26 @@
 #include <bitset>
 #include <sstream>
 #include "header.h"
+#include <vector>
 /* TODO:
 	fix how input is read from a file. it needs to allow spaces
 	but will only read the first byte.
 */
 
-
-using namespace std; // to prevent stuff like std::cin.getline() and shit
+// to prevent stuff like std::cin.getline() and shit
+using namespace std; 
 
 bool hasConverted = false;
 
 int main() {
-	char Message[MAXSIZE];
-	do { //this loops in the event the user put in a character that isn't an 'e' or fucked up something
+	//char Message[MAXSIZE];
+	vector<char> vecmessage;
+	do { // this loops in the event the user put in a character that isn't an 'e' or fucked up something
 		printf("How should we do this?\n (R)ead a file\n (W)rite it myself\n\n");
 		char Choice[100];
 		cin.getline(Choice, sizeof(Choice));
-	
+		cin.clear();
+
 		if (tolower(Choice[0]) == 'r') {
 
 			system("cls");
@@ -28,10 +31,10 @@ int main() {
 			cin.getline(FileName, FILESIZENAME);
 			system("cls");
 
-			if (LoadFile(Message, FileName)) {
+			if (LoadFile(vecmessage, FileName)) {
 				printf("File Loaded! Will now convert.\n\n");
 				system("pause");
-				EToBin(Message, hasConverted);
+				EToBin(vecmessage, hasConverted);
 			}
 			else {
 				printf("File loading failed! Is it in SavedFiles?\n\n");
@@ -43,10 +46,21 @@ int main() {
 		
 				printf("Write some E's for me. \'E\' for 1, and \'e\' for 0. \n");
 
-				cin.getline(Message, MAXSIZE); //gets user input
+				
+				// temporary char array to help with input since direct input to vector sucks
+				char TempMsg[MAXSIZE];
+
+				//gets user input
+				cin.getline(TempMsg, sizeof(TempMsg)); 
 				cin.clear();
 
-				EToBin(Message, hasConverted);
+				// copies 
+				ArrayToVec(vecmessage, TempMsg);
+
+				// we no longer need TempMsg after running ArrayToVec
+				//delete TempMsg;
+
+				EToBin(vecmessage, hasConverted);
 
 		}
 	} while (hasConverted == false);
