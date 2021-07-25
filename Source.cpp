@@ -53,9 +53,6 @@ int main() {
 				// copies 
 				ArrayToVec(vecmessage, TempMsg);
 
-				// we no longer need TempMsg after running ArrayToVec
-				//delete TempMsg;
-
 				EToBin(vecmessage, hasConverted);
 
 		}

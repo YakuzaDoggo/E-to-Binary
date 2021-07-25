@@ -41,14 +41,13 @@ void EToBin(vector<char> message, bool& converted) {
 		// e = 0
 		case 'e': 
 			VecBinMessage.push_back('0');
-			//BinMessage[x] = '0';
+			
 			break;
 
 		// E = 1
 		case 'E': 
 			VecBinMessage.push_back('1');
 
-			//BinMessage[x] = '1';
 			break;
 
 		// enter key or the default empty array value is set to a null character
@@ -126,7 +125,6 @@ bool LoadFile(vector<char>& message, char filename[]) {
 		// get character so long it isn't a newline or end of file
 		if (c != '\n' && !inFile.eof()) {
 			message.push_back(c);
-			//message[x] = c;
 			c = inFile.get();
 		}
 
@@ -148,6 +146,8 @@ void ArrayToVec(vector<char>& message, char temp[]) {
 		message.push_back(temp[x]);
 		x++;
 	}
+
+	RemoveSpaces(message);
 
 	return;
 }
