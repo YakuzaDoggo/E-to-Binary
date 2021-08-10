@@ -4,7 +4,7 @@
 using namespace std;
 
 // Max size for our message at 512 "bits"
-const int MAXSIZE = 512;
+const int MAXSIZE = 1024;
 
 // Max size for a windows file name and directory
 const int FILESIZENAME = 255;
@@ -29,3 +29,6 @@ void ArrayToVec(vector<char>& message, char temp[]);
 
 // Helps output whatever is contained in the binary vector. Is called within EtoBin.
 void VecOutput(vector<char>& message);
+
+// Experimental: Directly copies input into vector
+//void VecInput(vector<char>& message, input);
